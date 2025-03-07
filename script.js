@@ -66,7 +66,18 @@ document.getElementById("newt").addEventListener('submit', (event) => {
 
     const guess = Number(document.getElementById("guess").value);
 
-    let aprox = guess - (getFOfX(guess)/getFPrimeOfX(guess));
+    let prevAprox = guess;
+    let aprox = prevAprox - (getFOfX(prevAprox)/getFPrimeOfX(prevAprox));
+    let permutations = 0;
 
+    console.log(prevAprox, aprox, guess);
+
+    while (Math.abs(aprox-prevAprox) >= 0.0001) {
+        permutations++;
+        prevAprox = aprox;
+        aprox = prevAprox - (getFOfX(prevAprox)/getFPrimeOfX(prevAprox));
+    }
+
+    document.getElementById("resPerms").value = (permutations);
     document.getElementById("resN").value = (aprox);
 })

@@ -50,7 +50,7 @@ input {
 }
 
 #newt-submit {
-    margin-top: 158px;
+    margin-top: 84px;
 }
 
 .submit-button {
@@ -60,7 +60,7 @@ input {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.calc-button:active {
+.submit-button:active {
     transition: 0.05s;
     background-color: rgb(205, 205, 205);
     box-shadow: none;

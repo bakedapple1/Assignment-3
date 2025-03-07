@@ -19,9 +19,9 @@ document.getElementById("ambig").addEventListener('submit', (event) => {
     const angA = Number(document.getElementById("angA").value);
     const sideA = Number(document.getElementById("sideA").value);
     const sideB = Number(document.getElementById("sideB").value);
-    
+
     const height = Number((sideB * Math.sin(angA * (Math.PI / 180))).toFixed(10));
-    
+
     let result = "invalid input";
 
     console.log(angA, sideA, sideB, height)
@@ -51,4 +51,24 @@ document.getElementById("ambig").addEventListener('submit', (event) => {
         }
 
     document.getElementById("resA").value = (result);
+})
+
+
+
+document.getElementById("newt").addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    function getFOfX(x) {
+        return 6 * x ** 4 - 13 * x ** 3 - 18 * x ** 2 + 7 * x + 6;
+    }
+
+    function getFPrimeOfX(x) {
+        return 24 * x ** 3 - 39 * x ** 2 - 36 * x + 7;
+    }
+
+    const guess = Number(document.getElementById("guess").value);
+
+    let aprox = guess - (getFOfX(guess)/getFPrimeOfX(guess));
+
+    document.getElementById("resN").value = (aprox);
 })

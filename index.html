@@ -24,7 +24,7 @@
             <input type="number" name="sideC" id="c">
             <label for="resH">Area:</label>
             <input type="text" name="result" id="resH" disabled>
-            <input type="submit" value="Calculate" class="calc-button">
+            <input type="submit" value="Calculate" class="submit-button" id="herons-submit">
         </form>
     </div>
 
@@ -39,11 +39,20 @@
             <input type="number" name="sideB" id="sideB">
             <label for="resA">Triangle Type:</label>
             <input type="text" name="result" id="resA" disabled>
-            <input type="submit" value="Calculate" class="calc-button">
+            <input type="submit" value="Calculate" class="submit-button" id="ambig-submit">
         </form>
     </div>
 
-
+    <div class="calculators">
+        <h1 class="title">Newton's Method</h1>
+        <form class="forms" id="newt">
+            <label for="guess">Root Guess:</label>
+            <input type="number" step="any" name="guess" id="guess">
+            <label for="resR">Root Approximation:</label>
+            <input type="text" name="result" id="resN" disabled>
+            <input type="submit" value="Calculate" class="submit-button" id="newt-submit">
+        </form>
+    </div>
 
     <script src="script.js"></script>
 

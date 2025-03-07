@@ -22,7 +22,7 @@ document.getElementById("ambig").addEventListener('submit', (event) => {
 
     const height = Number((sideB * Math.sin(angA * (Math.PI / 180))).toFixed(10));
 
-    let result = "invalid input";
+    let result = "no triangle";
 
     console.log(angA, sideA, sideB, height)
 
@@ -31,21 +31,19 @@ document.getElementById("ambig").addEventListener('submit', (event) => {
         if (angA >= 90) {
 
             if (sideA <= sideB) {
-                result = "no triangle"
-            } else {
-                result = "one triangle"
+                result = "no triangle";
             }
 
         } else {
 
             if (sideA < height) {
-                result = "no triangle"
+                result = "no triangle";
             } else if (sideA == height) {
-                result = "right triangle"
+                result = "right triangle";
             } else if (sideA > sideB) {
-                result = "one triangle"
+                result = "one triangle";
             } else if (sideA > height && sideA < sideB) {
-                result = "two triangles (ambiguous case)"
+                result = "two triangles (ambiguous case)";
             }
 
         }

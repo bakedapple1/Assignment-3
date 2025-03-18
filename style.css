@@ -34,8 +34,8 @@ input {
 }
 
 .calculators {
-    width: 250px;
-    height: 400px;
+    width: 275px;
+    height: 470px;
     padding: 20px;
     margin: 30px;
     align-items: stretch;
@@ -47,10 +47,16 @@ input {
 .forms {
     display: flex;
     flex-direction: column;
+    height: 400px;
 }
 
 #newt-submit {
-    margin-top: 84px;
+    margin-top: 154px;
+}
+
+#herons-submit,
+#ambig-submit {
+    margin-top: 80px;
 }
 
 .submit-button {

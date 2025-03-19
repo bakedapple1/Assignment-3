@@ -81,3 +81,34 @@ document.getElementById("newt").addEventListener('submit', (event) => {
     document.getElementById("resPerms").value = (permutations);
     document.getElementById("resN").value = (aprox);
 })
+
+
+
+document.getElementById("pofunc").addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    const coefficients = document.getElementById("coeff").value.split(" ").map(Number);
+    const exponents = document.getElementById("expo").value.split(" ").map(Number);
+    const xValue = Number(document.getElementById("xVal").value);
+
+    let resultFunction = "f(x)=";
+    let resultEvaluation = null;
+
+    for (let i = 0 ; i < coefficients.length ; i++) {
+        
+        if (coefficients[i] == 1) {
+            resultFunction = `${resultFunction}+x^${exponents[i]}`;
+        } else if (coefficients[i] == -1) {
+            resultFunction = `${resultFunction}-x^${exponents[i]}`;
+        } else if (coefficients[i] >= 0 && i > 0) {
+            resultFunction = `${resultFunction}+${coefficients[i]}x^${exponents[i]}`;
+        } else {
+            resultFunction = `${resultFunction}${coefficients[i]}x^${exponents[i]}`;
+        }
+
+        resultEvaluation += coefficients[i] * xValue ** exponents[i];
+    }
+
+    document.getElementById("resFunc").value = (resultFunction);
+    document.getElementById("resEval").value = (resultEvaluation);
+})

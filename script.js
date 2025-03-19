@@ -96,15 +96,46 @@ document.getElementById("pofunc").addEventListener('submit', (event) => {
 
     for (let i = 0 ; i < coefficients.length ; i++) {
         
-        if (coefficients[i] == 1) {
-            resultFunction = `${resultFunction}+x^${exponents[i]}`;
-        } else if (coefficients[i] == -1) {
-            resultFunction = `${resultFunction}-x^${exponents[i]}`;
-        } else if (coefficients[i] >= 0 && i > 0) {
-            resultFunction = `${resultFunction}+${coefficients[i]}x^${exponents[i]}`;
-        } else {
-            resultFunction = `${resultFunction}${coefficients[i]}x^${exponents[i]}`;
+
+        /*
+        Case 1: 0 coeff => no terms
+
+        cont
+
+        Case 1: first coeff => null
+        Case 2: positive => +
+        Case 3: negative => -
+        
+        cont
+
+        Case 1: expo 0 => null
+        Case 2: expo 1 => x
+        Case 3: expo > 1 => x^expo
+
+        */
+
+        if (coefficients[i] != 0) {
+            
+            if (i != 0) {
+
+                if (coefficients[i] > 0) {
+                    resultFunction = `${resultFunction}+`;
+                }
+
+            }
+
         }
+
+
+        // if (coefficients[i] == 1) {
+        //     resultFunction = `${resultFunction}+x^${exponents[i]}`;
+        // } else if (coefficients[i] == -1) {
+        //     resultFunction = `${resultFunction}-x^${exponents[i]}`;
+        // } else if (coefficients[i] >= 0 && i > 0) {
+        //     resultFunction = `${resultFunction}+${coefficients[i]}x^${exponents[i]}`;
+        // } else {
+        //     resultFunction = `${resultFunction}${coefficients[i]}x^${exponents[i]}`;
+        // }
 
         resultEvaluation += coefficients[i] * xValue ** exponents[i];
     }

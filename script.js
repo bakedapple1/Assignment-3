@@ -7,8 +7,6 @@ document.getElementById("herons").addEventListener('submit', (event) => {
 
     const area = Number((0.25 * Math.sqrt(4 * (sideA ** 2) * (sideB ** 2) - (sideA ** 2 + sideB ** 2 - sideC ** 2) ** 2)).toFixed(5));
 
-    console.log(sideA, sideB, sideC, area)
-
     document.getElementById("resH").value = (area);
 })
 
@@ -23,8 +21,6 @@ document.getElementById("ambig").addEventListener('submit', (event) => {
     const height = Number((sideB * Math.sin(angA * (Math.PI / 180))).toFixed(10));
 
     let result = "no triangle";
-
-    console.log(angA, sideA, sideB, height)
 
     if (sideA != "" && sideB != "" && angA != "")
 
@@ -69,8 +65,6 @@ document.getElementById("newt").addEventListener('submit', (event) => {
     let prevAprox = guess;
     let aprox = prevAprox - (getFOfX(prevAprox)/getFPrimeOfX(prevAprox));
     let permutations = 0;
-
-    console.log(prevAprox, aprox, guess);
 
     while (Math.abs(aprox-prevAprox) >= 0.0001) {
         permutations++;

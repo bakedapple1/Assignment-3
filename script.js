@@ -103,7 +103,6 @@ document.getElementById("pofunc").addEventListener('submit', (event) => {
                 }
 
             } else {
-                resultFunction += "-";
                 
                 if (coefficients[i] != -1) {
                     resultFunction += coefficients[i];

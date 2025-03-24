@@ -5,7 +5,7 @@ document.getElementById("herons").addEventListener('submit', (event) => {
     const sideB = Number(document.getElementById("b").value);
     const sideC = Number(document.getElementById("c").value);
 
-    const area = Number((0.25 * Math.sqrt(4 * (sideA ** 2) * (sideB ** 2) - (sideA ** 2 + sideB ** 2 - sideC ** 2) ** 2)).toFixed(5));
+    let area = Number((0.25 * Math.sqrt(4 * (sideA ** 2) * (sideB ** 2) - (sideA ** 2 + sideB ** 2 - sideC ** 2) ** 2)).toFixed(5));
 
     document.getElementById("resH").value = (area);
 })
@@ -18,8 +18,7 @@ document.getElementById("ambig").addEventListener('submit', (event) => {
     const sideA = Number(document.getElementById("sideA").value);
     const sideB = Number(document.getElementById("sideB").value);
 
-    const height = Number((sideB * Math.sin(angA * (Math.PI / 180))).toFixed(10));
-
+    let height = Number((sideB * Math.sin(angA * (Math.PI / 180))).toFixed(10));
     let result = "no triangle";
 
     if (sideA != "" && sideB != "" && angA != "")
@@ -52,6 +51,13 @@ document.getElementById("ambig").addEventListener('submit', (event) => {
 document.getElementById("newt").addEventListener('submit', (event) => {
     event.preventDefault();
 
+    const guess = Number(document.getElementById("guess").value);
+
+    let prevAprox = guess;
+    let aprox = prevAprox - (getFOfX(prevAprox) / getFPrimeOfX(prevAprox));
+    let permutations = 0;
+
+
     function getFOfX(x) {
         return 6 * x ** 4 - 13 * x ** 3 - 18 * x ** 2 + 7 * x + 6;
     }
@@ -60,16 +66,11 @@ document.getElementById("newt").addEventListener('submit', (event) => {
         return 24 * x ** 3 - 39 * x ** 2 - 36 * x + 7;
     }
 
-    const guess = Number(document.getElementById("guess").value);
 
-    let prevAprox = guess;
-    let aprox = prevAprox - (getFOfX(prevAprox)/getFPrimeOfX(prevAprox));
-    let permutations = 0;
-
-    while (Math.abs(aprox-prevAprox) >= 0.0001) {
+    while (Math.abs(aprox - prevAprox) >= 0.0001) {
         permutations++;
         prevAprox = aprox;
-        aprox = prevAprox - (getFOfX(prevAprox)/getFPrimeOfX(prevAprox));
+        aprox = prevAprox - (getFOfX(prevAprox) / getFPrimeOfX(prevAprox));
     }
 
     document.getElementById("resPerms").value = (permutations);
@@ -80,7 +81,7 @@ document.getElementById("newt").addEventListener('submit', (event) => {
 
 document.getElementById("pofunc").addEventListener('submit', (event) => {
     event.preventDefault();
-    
+
     const coefficients = document.getElementById("coeff").value.split(" ").map(Number);
     const exponents = document.getElementById("expo").value.split(" ").map(Number);
     const xValue = Number(document.getElementById("xVal").value);
@@ -88,22 +89,22 @@ document.getElementById("pofunc").addEventListener('submit', (event) => {
     let resultFunction = "f(x)=";
     let resultEvaluation = null;
 
-    for (let i = 0 ; i < coefficients.length ; i++) {
+    for (let i = 0; i < coefficients.length; i++) {
 
         if (coefficients[i] != 0) {
-            
+
             if (coefficients[i] > 0) {
 
                 if (resultFunction.length != 5) {
                     resultFunction += "+";
                 }
-                
+
                 if (coefficients[i] != 1) {
                     resultFunction += coefficients[i];
                 }
 
             } else {
-                
+
                 if (coefficients[i] != -1) {
                     resultFunction += coefficients[i];
                 }

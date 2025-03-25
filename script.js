@@ -21,12 +21,14 @@ document.getElementById("ambig").addEventListener('submit', (event) => {
     let height = Number((sideB * Math.sin(angA * (Math.PI / 180))).toFixed(10));
     let result = "no triangle";
 
-    if (sideA != "" && sideB != "" && angA != "")
+    if (sideA != "" && sideB != "" && angA != "") {
 
         if (angA >= 90) {
 
             if (sideA <= sideB) {
                 result = "no triangle";
+            } else {
+                result = "one triangle";
             }
 
         } else {
@@ -42,7 +44,7 @@ document.getElementById("ambig").addEventListener('submit', (event) => {
             }
 
         }
-
+    }
     document.getElementById("resA").value = (result);
 })
 

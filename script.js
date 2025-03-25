@@ -7,7 +7,7 @@ document.getElementById("herons").addEventListener('submit', (event) => {
 
     let area = Number((0.25 * Math.sqrt(4 * (sideA ** 2) * (sideB ** 2) - (sideA ** 2 + sideB ** 2 - sideC ** 2) ** 2)).toFixed(5));
 
-    document.getElementById("resH").value = (area);
+    document.getElementById("resH").value = area;
 })
 
 
@@ -22,17 +22,13 @@ document.getElementById("ambig").addEventListener('submit', (event) => {
     let result = "no triangle";
 
     if (sideA != "" && sideB != "" && angA != "") {
-
         if (angA >= 90) {
-
             if (sideA <= sideB) {
                 result = "no triangle";
             } else {
                 result = "one triangle";
             }
-
         } else {
-
             if (sideA < height) {
                 result = "no triangle";
             } else if (sideA == height) {
@@ -42,10 +38,9 @@ document.getElementById("ambig").addEventListener('submit', (event) => {
             } else if (sideA > height && sideA < sideB) {
                 result = "two triangles (ambiguous case)";
             }
-
         }
     }
-    document.getElementById("resA").value = (result);
+    document.getElementById("resA").value = result;
 })
 
 
@@ -56,9 +51,8 @@ document.getElementById("newt").addEventListener('submit', (event) => {
     const guess = Number(document.getElementById("guess").value);
 
     let prevAprox = guess;
-    let aprox = prevAprox - (getFOfX(prevAprox) / getFPrimeOfX(prevAprox));
+    let aprox = prevAprox - getFOfX(prevAprox) / getFPrimeOfX(prevAprox);
     let permutations = 0;
-
 
     function getFOfX(x) {
         return 6 * x ** 4 - 13 * x ** 3 - 18 * x ** 2 + 7 * x + 6;
@@ -68,15 +62,14 @@ document.getElementById("newt").addEventListener('submit', (event) => {
         return 24 * x ** 3 - 39 * x ** 2 - 36 * x + 7;
     }
 
-
     while (Math.abs(aprox - prevAprox) >= 0.0001) {
         permutations++;
         prevAprox = aprox;
-        aprox = prevAprox - (getFOfX(prevAprox) / getFPrimeOfX(prevAprox));
+        aprox = prevAprox - getFOfX(prevAprox) / getFPrimeOfX(prevAprox);
     }
 
-    document.getElementById("resPerms").value = (permutations);
-    document.getElementById("resN").value = (aprox);
+    document.getElementById("resPerms").value = permutations;
+    document.getElementById("resN").value = aprox;
 })
 
 
@@ -94,19 +87,14 @@ document.getElementById("pofunc").addEventListener('submit', (event) => {
     for (let i = 0; i < coefficients.length; i++) {
 
         if (coefficients[i] != 0) {
-
             if (coefficients[i] > 0) {
-
                 if (resultFunction.length != 5) {
                     resultFunction += "+";
                 }
-
                 if (coefficients[i] != 1) {
                     resultFunction += coefficients[i];
                 }
-
             } else {
-
                 if (coefficients[i] != -1) {
                     resultFunction += coefficients[i];
                 }
@@ -114,7 +102,6 @@ document.getElementById("pofunc").addEventListener('submit', (event) => {
 
             if (exponents[i] != 0) {
                 resultFunction += "x";
-
                 if (exponents[i] != 1) {
                     resultFunction += `^${exponents[i]}`;
                 }
@@ -124,6 +111,6 @@ document.getElementById("pofunc").addEventListener('submit', (event) => {
         resultEvaluation += coefficients[i] * xValue ** exponents[i];
     }
 
-    document.getElementById("resFunc").value = (resultFunction);
-    document.getElementById("resEval").value = (resultEvaluation);
+    document.getElementById("resFunc").value = resultFunction;
+    document.getElementById("resEval").value = resultEvaluation;
 })

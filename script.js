@@ -52,7 +52,7 @@ document.getElementById("newt").addEventListener('submit', (event) => {
 
     let prevAprox = guess;
     let aprox = prevAprox - getFOfX(prevAprox) / getFPrimeOfX(prevAprox);
-    let permutations = 0;
+    let permutations = 1;
 
     function getFOfX(x) {
         return 6 * x ** 4 - 13 * x ** 3 - 18 * x ** 2 + 7 * x + 6;
